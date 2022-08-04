@@ -6,3 +6,17 @@ export async function createHistoric(historic: HistoricCreate) {
         data: historic
     });
 }
+
+
+export async function getHistoricByPhone(phone: string) {
+    return await prisma.historic.findFirst({
+        select: {
+            userId: true
+        },
+        where: {
+            user: {
+                phone
+            }
+        }
+    });
+}

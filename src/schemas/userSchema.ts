@@ -1,4 +1,5 @@
 import joi from 'joi';
+import { AssessmentRegister } from '../services/assessmentsServices.js';
 import { HistoricRegister } from '../services/historicServices.js';
 import { UserRegister } from '../services/userServices.js';
 
@@ -21,12 +22,27 @@ export const userSchema = joi.object({
 
 export const historicSchema = joi.object({
     historic: joi.object<HistoricRegister>({
-        alergies: joi.string().allow(null),
-        familyAlergies: joi.string().allow(null),
-        skinDesease: joi.string().allow(null),
-        medicines: joi.string().allow(null),
+        alergies: joi.string().allow(null).required(),
+        familyAlergies: joi.string().allow(null).required(),
+        skinDesease: joi.string().allow(null).required(),
+        medicines: joi.string().allow(null).required(),
         pregnancy: joi.boolean().required()
     }),
     phone: joi.string().length(11).required()
 
+});
+
+
+export const assessmentSchema = joi.object({
+    assessment: joi.object<AssessmentRegister>({
+        skinType: joi.string().valid('Seca', 'Oleosa', 'Normal').required(),
+        spots: joi.string().allow(null).required(),
+        skinChanges: joi.string().allow(null).required(),
+        acidTreatment: joi.string().allow(null).required(),
+        skinHidratation: joi.string().allow(null).required(),
+        hasDiabetes: joi.boolean().required(),
+        alreadyWax: joi.boolean().required(),
+        lastStyle: joi.string().allow(null).required(),
+    }),
+    phone: joi.string().length(11).required()
 });

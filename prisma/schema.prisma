@@ -39,7 +39,13 @@ enum Skins {
   Oleosa
   Seca
   Normal
-  Combinada
+}
+
+enum Styles {
+  Quente
+  Fria
+  Lamina
+  Laser
 }
 
 model Assessment {
@@ -51,7 +57,7 @@ model Assessment {
   skinHidratation String?
   hasDiabetes     Boolean
   alreadyWax      Boolean
-  oldStyle        String?
+  lastStyle       Styles?
   userId          Int     @unique
   user            User    @relation(fields: [userId], references: [id])
 }
