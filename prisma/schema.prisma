@@ -31,7 +31,6 @@ model Historic {
   skinDesease    String?
   medicines      String?
   pregnancy      Boolean
-  note           String?
   userId         Int     @unique
   user           User    @relation(fields: [userId], references: [id])
 }
