@@ -9,7 +9,7 @@ export type HistoricRegister = Omit<Historic, 'id' | 'userId'>;
 export async function createHistoric(historic: HistoricRegister, phone: string) {
     const dbHistoric = await getHistoric(phone);
     if (dbHistoric) _conflict();
-    const { id: userId } = await userServices.getUser(phone);
+    const { id: userId } = await userServices.getUserOrThrow(phone);
     if (!userId) _notfound();
     await historicRepository.createHistoric({ ...historic, userId });
 }

@@ -10,7 +10,7 @@ export type AssessmentRegister = Omit<Assessment, 'id' | 'userId'>
 export async function createAssessment(assessment: AssessmentRegister, phone: string) {
     const dbAssessment = await getAssessment(phone);
     if (dbAssessment) _conflict();
-    const { id: userId } = await userServices.getUser(phone);
+    const { id: userId } = await userServices.getUserOrThrow(phone);
     if (!userId) _notfound();
     await assessmentRepository.createAssessment({ ...assessment, userId });
 }
