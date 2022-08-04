@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int         @id @default(autoincrement())
+  name       String
+  birthday   String
+  phone      String
+  email      String      @unique
+  adress     String
+  job        String
+  musicStyle String
+  histoic    Historic?
+  assessment Assessment?
+  Session    Session?
+}
+
+model Historic {
+  id             Int     @id @default(autoincrement())
+  alergies       String?
+  familyAlergies String?
+  skinDesease    String?
+  medicines      String?
+  pregnancy      Boolean
+  note           String?
+  userId         Int     @unique
+  user           User    @relation(fields: [userId], references: [id])
+}
+
+enum Skins {
+  Oleosa
+  Seca
+  Normal
+  Combinada
+}
+
+model Assessment {
+  id              Int     @id @default(autoincrement())
+  skinType        Skins
+  spots           String?
+  skinChanges     String?
+  acidTreatment   String?
+  skinHidratation String?
+  hasDiabetes     Boolean
+  alreadyWax      Boolean
+  oldStyle        String?
+  userId          Int     @unique
+  user            User    @relation(fields: [userId], references: [id])
+}
+
+model Session {
+  id              Int       @id @default(autoincrement())
+  lastVisit       DateTime?
+  lastProcediment String?
+  userId          Int       @unique
+  user            User      @relation(fields: [userId], references: [id])
+}
