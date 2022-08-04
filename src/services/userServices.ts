@@ -16,6 +16,5 @@ export async function getUserOrThrow(phone: string) {
 }
 
 export async function getUser(phone: string) {
-    const user = await userRepository.getUserByPhone(phone);
-    return { id: user.id, email: user.email, name: user.name, phone: user.phone };
+    return await userRepository.getUserByPhone(phone);
 }

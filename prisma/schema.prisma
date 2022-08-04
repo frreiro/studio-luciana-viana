@@ -22,6 +22,8 @@ model User {
   histoic    Historic?
   assessment Assessment?
   Session    Session?
+
+  @@map("user")
 }
 
 model Historic {
@@ -33,6 +35,8 @@ model Historic {
   pregnancy      Boolean
   userId         Int     @unique
   user           User    @relation(fields: [userId], references: [id])
+
+  @@map("historic")
 }
 
 enum Skins {
@@ -60,6 +64,8 @@ model Assessment {
   lastStyle       Styles?
   userId          Int     @unique
   user            User    @relation(fields: [userId], references: [id])
+
+  @@map("assessment")
 }
 
 model Session {
@@ -68,4 +74,6 @@ model Session {
   lastProcediment String?
   userId          Int       @unique
   user            User      @relation(fields: [userId], references: [id])
+
+  @@map("session")
 }
