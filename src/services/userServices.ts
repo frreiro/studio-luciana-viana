@@ -14,7 +14,7 @@ export async function createUser(user: UserRegister) {
 
 export async function logUser({ password, email }: { password: string, email: string }) {
     const userDetails = await getUserOrThrow(email);
-    comparePassword(userDetails.password, password);
+    comparePassword(password, userDetails.password);
     delete userDetails.password;
     const token = generateToken(userDetails.id);
     return token;

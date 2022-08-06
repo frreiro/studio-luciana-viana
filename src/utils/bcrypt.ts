@@ -6,6 +6,7 @@ export function encryptPassword(password: string) {
 }
 
 export function comparePassword(password: string, hashPassword: string) {
+    console.log(password, hashPassword);
     const compare = bcrypt.compareSync(password, hashPassword);
     if (!compare) _unauthorized();
 }
