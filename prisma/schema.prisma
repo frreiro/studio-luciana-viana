@@ -19,6 +19,7 @@ model User {
   adress     String
   occupation String
   musicStyle String
+  password   String
   histoic    Historic?
   assessment Assessment?
   Session    Session?

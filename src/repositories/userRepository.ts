@@ -1,14 +1,14 @@
 import prisma from '../database.js';
-import { User } from '@prisma/client';
+import { UserRegister } from '../services/userServices.js';
 
-export async function createUser(user: User) {
+export async function createUser(user: UserRegister) {
     await prisma.user.create({
         data: user
     });
 }
 
-export async function getUserByPhone(phone: string) {
+export async function getUserByEmail(email: string) {
     return await prisma.user.findFirst({
-        where: { phone }
+        where: { email }
     });
 }

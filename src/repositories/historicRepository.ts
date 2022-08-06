@@ -10,8 +10,14 @@ export async function createHistoric(historic: HistoricCreate) {
 
 export async function getHistoricByPhone(phone: string) {
     return await prisma.historic.findFirst({
-        select: {
-            userId: true
+        include: {
+            user: {
+                select: {
+                    id: true,
+                    name: true,
+                }
+            },
+
         },
         where: {
             user: {
