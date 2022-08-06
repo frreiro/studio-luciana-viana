@@ -16,7 +16,7 @@ model User {
   birthday   String
   phone      String
   email      String      @unique
-  adress     String
+  address    String
   occupation String
   musicStyle String
   password   String
