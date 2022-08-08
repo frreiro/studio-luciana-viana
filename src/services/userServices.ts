@@ -31,6 +31,9 @@ export async function getUser(email: string) {
     return await userRepository.getUserByEmail(email);
 }
 
+export async function getUserById(id: number) {
+    return await userRepository.getUserById(id);
+}
 
 
 

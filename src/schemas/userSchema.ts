@@ -20,16 +20,12 @@ export const userSchema = joi.object({
     })
 });
 
-export const historicSchema = joi.object({
-    historic: joi.object<HistoricRegister>({
-        alergies: joi.string().allow(null).required(),
-        familyAlergies: joi.string().allow(null).required(),
-        skinDesease: joi.string().allow(null).required(),
-        medicines: joi.string().allow(null).required(),
-        pregnancy: joi.boolean().required()
-    }),
-    phone: joi.string().length(11).required()
-
+export const historicSchema = joi.object<HistoricRegister>({
+    alergies: joi.string().allow(null).required(),
+    familyAlergies: joi.string().allow(null).required(),
+    skinDesease: joi.string().allow(null).required(),
+    medicines: joi.string().allow(null).required(),
+    pregnancy: joi.boolean().required()
 });
 
 

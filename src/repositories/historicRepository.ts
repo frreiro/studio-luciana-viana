@@ -8,7 +8,7 @@ export async function createHistoric(historic: HistoricCreate) {
 }
 
 
-export async function getHistoricByPhone(phone: string) {
+export async function getHistoricById(id: number) {
     return await prisma.historic.findFirst({
         include: {
             user: {
@@ -21,7 +21,7 @@ export async function getHistoricByPhone(phone: string) {
         },
         where: {
             user: {
-                phone
+                id
             }
         }
     });

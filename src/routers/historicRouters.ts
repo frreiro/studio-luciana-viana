@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { readHistoric, registerHistoric } from '../controllers/historicControllers.js';
-import { phoneSchemaValidate, schemaValidate } from '../middlewares/userMiddlewares.js';
-import { historicSchema, phoneSchema } from '../schemas/userSchema.js';
+import { tokenValidate } from '../middlewares/tokenValidate.js';
+import { schemaValidate } from '../middlewares/userMiddlewares.js';
+import { historicSchema } from '../schemas/userSchema.js';
 
 const historicRouter = Router();
 
-historicRouter.post('/user/historic', schemaValidate(historicSchema), registerHistoric);
-historicRouter.get('/user/historic/:phone', phoneSchemaValidate(phoneSchema), readHistoric);
+historicRouter.post('/historic', tokenValidate, schemaValidate(historicSchema), registerHistoric);
+historicRouter.get('/historic', tokenValidate, readHistoric);
 
 export default historicRouter;

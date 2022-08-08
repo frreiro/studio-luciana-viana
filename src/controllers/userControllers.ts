@@ -15,3 +15,10 @@ export async function registerUser(req: Request, res: Response) {
     await userServices.createUser(body);
     res.sendStatus(201);
 }
+
+
+export async function getUser(req: Request, res: Response) {
+    const { id } = res.locals.userId;
+    const user = await userServices.getUserById(id);
+    res.send({ id: user.id, name: user.name, email: user.email });
+}
