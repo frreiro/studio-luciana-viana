@@ -23,9 +23,9 @@ export const userSchema = joi.object({
 export const historicSchema = joi.object<HistoricRegister>({
     alergies: joi.string().allow(null).required(),
     familyAlergies: joi.string().allow(null).required(),
-    skinDesease: joi.string().allow(null).required(),
+    skinDeseases: joi.string().allow(null).required(),
     medicines: joi.string().allow(null).required(),
-    pregnancy: joi.boolean().required()
+    pregnancy: joi.boolean().strict().required()
 });
 
 

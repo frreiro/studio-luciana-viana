@@ -31,7 +31,7 @@ model Historic {
   id             Int     @id @default(autoincrement())
   alergies       String?
   familyAlergies String?
-  skinDesease    String?
+  skinDeseases   String?
   medicines      String?
   pregnancy      Boolean
   userId         Int     @unique

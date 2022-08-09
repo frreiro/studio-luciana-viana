@@ -12,8 +12,8 @@ export async function createHistoric(historic: HistoricRegister, id: number) {
     await historicRepository.createHistoric({ ...historic, userId: id });
 }
 
-export async function getHistoricOrThrow(id: number) {
-    const historic = await historicRepository.getHistoricById(id);
+export async function getHistoricByUserIdOrThrow(userId: number) {
+    const historic = await historicRepository.getHistoricByUserId(userId);
     if (!historic) _notfound();
     return historic;
 }
@@ -21,4 +21,16 @@ export async function getHistoricOrThrow(id: number) {
 export async function getHistoric(id: number) {
     const historic = await historicRepository.getHistoricById(id);
     return historic;
+}
+
+export async function getHistoricByIdOrThrow(id: number) {
+    const historic = await historicRepository.getHistoricById(id);
+    if (!historic) _notfound();
+    return historic;
+}
+
+
+export async function updateHistoric(historic: HistoricCreate, id: number) {
+    await getHistoricByIdOrThrow(id);
+    await historicRepository.update(historic, id);
 }
