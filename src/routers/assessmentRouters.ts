@@ -1,12 +1,13 @@
 import { Router } from 'express';
-import { readAssesment, registerAssessment } from '../controllers/assessmentControllers.js';
-import { phoneSchemaValidate, schemaValidate } from '../middlewares/userMiddlewares.js';
-import { assessmentSchema, phoneSchema } from '../schemas/userSchema.js';
+import { registerAssessment, readAssesment, updateAssessment } from '../controllers/assessmentControllers.js';
+import { tokenValidate } from '../middlewares/tokenValidate.js';
+import { schemaValidate } from '../middlewares/userMiddlewares.js';
+import { assessmentSchema } from '../schemas/userSchema.js';
 
 const assessmentRouter = Router();
 
-assessmentRouter.post('/user/assessments', schemaValidate(assessmentSchema), registerAssessment);
-assessmentRouter.get('/user/assessments/:phone', phoneSchemaValidate(phoneSchema), readAssesment);
-
+assessmentRouter.post('/assessment', tokenValidate, schemaValidate(assessmentSchema), registerAssessment);
+assessmentRouter.get('/assessment', tokenValidate, readAssesment);
+assessmentRouter.put('/assessment/:id', tokenValidate, schemaValidate(assessmentSchema), updateAssessment);
 
 export default assessmentRouter;

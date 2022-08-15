@@ -47,10 +47,10 @@ enum Skins {
 }
 
 enum Styles {
-  Quente
-  Fria
-  Lamina
-  Laser
+  CERA_QUENTE
+  CERA_FRIA
+  LAMINA
+  LASER
 }
 
 model Assessment {

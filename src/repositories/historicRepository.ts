@@ -10,15 +10,6 @@ export async function createHistoric(historic: HistoricCreate) {
 
 export async function getHistoricByUserId(id: number) {
     return await prisma.historic.findFirst({
-        include: {
-            user: {
-                select: {
-                    id: true,
-                    name: true,
-                }
-            },
-
-        },
         where: {
             user: {
                 id
@@ -29,15 +20,6 @@ export async function getHistoricByUserId(id: number) {
 
 export async function getHistoricById(id: number) {
     return await prisma.historic.findFirst({
-        include: {
-            user: {
-                select: {
-                    id: true,
-                    name: true,
-                }
-            },
-
-        },
         where: {
             id
         }

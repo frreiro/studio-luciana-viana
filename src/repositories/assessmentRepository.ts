@@ -7,21 +7,28 @@ export async function createAssessment(assessment: AssessmentCreate) {
     });
 }
 
-export async function getAssessmentByPhone(phone: string) {
+export async function getAssessmentByUserId(userId: number) {
     return await prisma.assessment.findFirst({
-        include: {
-            user: {
-                select: {
-                    id: true,
-                    name: true,
-                }
-            },
-
-        },
         where: {
             user: {
-                phone
+                id: userId,
             }
+        }
+    });
+}
+
+export async function update(assessment: AssessmentCreate, id: number) {
+    await prisma.assessment.update({
+        where: { id },
+        data: assessment
+    });
+}
+
+
+export async function getAssessmentById(id: number) {
+    return await prisma.assessment.findFirst({
+        where: {
+            id
         }
     });
 }

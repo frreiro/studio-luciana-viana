@@ -28,17 +28,13 @@ export const historicSchema = joi.object<HistoricRegister>({
     pregnancy: joi.boolean().strict().required()
 });
 
-
-export const assessmentSchema = joi.object({
-    assessment: joi.object<AssessmentRegister>({
-        skinType: joi.string().valid('Seca', 'Oleosa', 'Normal').required(),
-        spots: joi.string().allow(null).required(),
-        skinChanges: joi.string().allow(null).required(),
-        acidTreatment: joi.string().allow(null).required(),
-        skinHidratation: joi.string().allow(null).required(),
-        hasDiabetes: joi.boolean().required(),
-        alreadyWax: joi.boolean().required(),
-        lastStyle: joi.string().allow(null).required(),
-    }),
-    phone: joi.string().length(11).required()
+export const assessmentSchema = joi.object<AssessmentRegister>({
+    skinType: joi.string().valid('Seca', 'Oleosa', 'Normal').required(),
+    spots: joi.string().allow(null).required(),
+    skinChanges: joi.string().allow(null).required(),
+    acidTreatment: joi.string().allow(null).required(),
+    skinHidratation: joi.string().allow(null).required(),
+    hasDiabetes: joi.boolean().required(),
+    alreadyWax: joi.boolean().required(),
+    lastStyle: joi.string().allow(null).required(),
 });
