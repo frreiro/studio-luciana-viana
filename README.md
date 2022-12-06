@@ -1,5 +1,5 @@
 <div align="center" >
-  <img width="150px" src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f4b0.svg" alt="studio-logo" width="400">
+  <img width="150px" src="https://studio-luciana-viana-front.vercel.app/static/media/Logo_c_fundo@4x.8125ea6d.png" alt="studio-logo" width="400">
   <br>
   <br>
   <h1>Studio Luciana Viana</h1>
@@ -214,14 +214,14 @@ $ yarn run dev
 	}
 	```
 
-## 💽 Database
+## 💽 Banco de dados
 
-This project uses a [PostgreSQL](https://www.postgresql.org/) database.
-- **Database name:** `studiodb`
-- **`Tables`:**
-  - **`user`:** Stores all users
-  - **`historic`:** Stores all users historics
-  - **`assessment`:** Stores all users assessments
-  - **`session`:** Stores all users sessions 
+Esse projeto usa o banco de dados [PostgreSQL](https://www.postgresql.org/).
+- **Nome do banco de dados:** `studiodb`
+- **`Tabelas`:**
+  - **`user`:** Armazena todos os usuários
+  - **`historic`:** Armazena todos os históricos dos usuários
+  - **`assessment`:** Armazena todos as avaliações dos usuários
+  - **`session`:** Armazena todos as sessões dos usuários 
 
 
