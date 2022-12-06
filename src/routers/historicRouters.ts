@@ -7,7 +7,7 @@ import { historicSchema } from '../schemas/userSchema.js';
 const historicRouter = Router();
 
 historicRouter.post('/historic', tokenValidate, schemaValidate(historicSchema), registerHistoric);
-historicRouter.post('/historic/:id', tokenValidate, schemaValidate(historicSchema), updateHistoric);
 historicRouter.get('/historic', tokenValidate, readHistoric);
+historicRouter.put('/historic/:id', tokenValidate, schemaValidate(historicSchema), updateHistoric);
 
 export default historicRouter;
