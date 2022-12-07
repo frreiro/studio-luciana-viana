@@ -89,7 +89,7 @@ $ yarn run dev
 		"musicStyle": "anymusicstyle",
 	}
 	```
-- **POST** `/signin` - Login de um usuário
+- **POST** `/login` - Login de um usuário
   - headers: none
   - body:
 	```json
