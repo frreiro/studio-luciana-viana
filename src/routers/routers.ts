@@ -12,6 +12,7 @@ routers.use(userRouter);
 //TODO: alterar historico e a avaliação
 routers.use(historicRouter);
 routers.use(assessmentRouter);
+routers.get('/health', (req,res) => res.sendStatus(200));
 
 
 
